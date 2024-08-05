@@ -1,18 +1,16 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "~/server/db";
+import { getMyImages } from "~/server/queries";
 
 /* eslint-disable @next/next/no-img-element */
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const image = await db.query.image.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getMyImages();
 
   return (
     <div className="flex flex-wrap">
-      {image.map((image, index) => (
+      {images.map((image, index) => (
         <div className="flex w-48 flex-col p-4" key={index}>
           <img src={image.url} alt="" />
           <div className="">{image.name}</div>

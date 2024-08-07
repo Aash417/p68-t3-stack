@@ -1,7 +1,11 @@
-export default async function PhotoModal({
+import FullPageImageView from "~/app/components/full-image";
+
+export default function PhotoModal({
   params: { id: photoId },
 }: {
   params: { id: string };
 }) {
-  return <div className="">{photoId}</div>;
+  const idAsNumber = Number(photoId);
+
+  return <FullPageImageView id={idAsNumber} />;
 }

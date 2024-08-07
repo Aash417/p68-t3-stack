@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 import { getMyImages } from "~/server/queries";
 
 /* eslint-disable @next/next/no-img-element */
@@ -13,7 +14,9 @@ async function Images() {
     <div className="flex flex-wrap">
       {images.map((image, index) => (
         <div className="flex w-48 flex-col p-4" key={index}>
-          <Image src={image.url} width={400} height={400} alt={image.name} />
+          <Link href={`/img/${image.id}`}>
+            <Image src={image.url} width={400} height={400} alt={image.name} />
+          </Link>
           <div className="">{image.name}</div>
         </div>
       ))}

@@ -18,8 +18,8 @@ import {
  */
 export const createTable = pgTableCreator((name) => `p68-t3-stack_${name}`);
 
-export const image = createTable(
-  "image",
+export const images = createTable(
+  "images",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }).notNull(),

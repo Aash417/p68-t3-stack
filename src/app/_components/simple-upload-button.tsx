@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { toast } from "sonner";
 import { useUploadThing } from "~/utils/uploadthing";
 
@@ -90,6 +91,10 @@ export function SimpleUploadButton() {
       toast.dismiss("upload-begin");
       toast(<span className="text-lg">Uploaded</span>);
       router.refresh();
+    },
+    onUploadError(error) {
+      posthog.capture("upload error", { error });
+      toast.error("upload failed");
     },
   });
 

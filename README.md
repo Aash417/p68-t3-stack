@@ -17,4 +17,4 @@
 - [x] Shad ui
 - [x] Analytics (posthog)
 - [x] Delete button (server action)
-- [] Ratelimiting (upstash)
+- [x] Ratelimiting (upstash)

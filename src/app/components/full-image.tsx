@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { clerkClient } from "@clerk/nextjs/server";
 import { getImage } from "~/server/queries";
 
@@ -7,7 +8,7 @@ export default async function FullPageImageView(props: { id: number }) {
 
   return (
     <div className="flex h-full w-full min-w-0">
-      <div className="flex w-5/6 flex-shrink items-center justify-center">
+      <div className="flex w-3/4 flex-shrink items-center justify-center">
         <img src={image.url} alt="" className="object-contain" />
       </div>
 
